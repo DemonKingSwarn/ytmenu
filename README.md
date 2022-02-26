@@ -9,3 +9,35 @@
  </p>
 <p align="center">
 This script is a simpler version of <a href="https://github.com/pystardust/ytfzf">ytfzf</a>.
+
+---
+
+# Table Of Contents
+
+* [`Dependencies`](#Dependencies)
+* [`Install`](#Install)
+
+---
+
+# Dependencies
+
+There are only 1 required dependency.
+
+## Required dependency
+
+* [`curl`](https://github.com/curl/curl)
+
+## Recommended dependencies
+
+* [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
+* [`rofi`](https://github.com/davatorium/rofi) (the default menu selection screen)
+
+# Install
+
+1. Install the dependencies listed [above](#Dependencies)
+2. Run the following commands
+```sh
+git clone https://github.com/demonkingswarn/ytmenu
+cd ytfzf
+sudo cp ytplay /usr/local/bin/ytplay
+```
