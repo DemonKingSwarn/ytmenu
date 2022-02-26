@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Watch youtube using this simple shell script
+## Dependencies - mpv rofi
+
+query=$(printf '%s' "$*" | rofi -dmenu -p "search youtube" | tr ' ' '+')
+url="https://www.youtube.com/$(curl -s "https://vid.puffyan.us/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+mpv "$url"
