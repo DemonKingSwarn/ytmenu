@@ -32,6 +32,10 @@ There are only 1 required dependency.
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
 * [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
 
+## Optional dependencies
+
+* [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
+
 # Install
 
 1. Install the dependencies listed [above](#Dependencies)
@@ -39,5 +43,5 @@ There are only 1 required dependency.
 ```sh
 git clone https://github.com/demonkingswarn/ytmenu
 cd ytmenu
-sudo cp ytplay /usr/local/bin/ytplay
+sudo cp ytmenu /usr/local/bin/ytmenu
 ```
