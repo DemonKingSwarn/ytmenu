@@ -29,7 +29,7 @@
 
 # Dependencies
 
-There are only 1 required dependency.
+There is only 1 required dependency.
 
 ## Required dependency
 
