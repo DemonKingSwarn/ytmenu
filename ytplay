@@ -1,12 +1,41 @@
 #!/bin/sh
 
 # Watch youtube using this simple shell script
-## Dependencies - mpv rofi
+## Dependencies - mpv dmenu youtube-dl
+
+VERSION="1.2"
+
+YOUTUBE_URL="https://youtube.com"
+INVIDIOUS_URL="https://vid.puffyan.us"
+
+menu() {
+	printf "1. Download a video\n"
+	printf "2. Search web\n"
+}
 
 search() {
-	query=$(printf '%s' "$*" | rofi -dmenu -p "search youtube" | tr ' ' '+')
-	url="https://www.youtube.com/$(curl -s "https://vid.puffyan.us/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	query=$(printf '%s' "$*" | dmenu -i -p "search youtube" | tr ' ' '+')
+	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	mpv "$url"
 }
 
-search &
+download() {
+	query=$(printf '%s' "$*" | dmenu -i -p "search: " | tr ' ' '+')
+	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	youtube-dl "$url"
+}
+
+choice=$(menu | dmenu -i -p "choose: " -l 2 | cut -d. -f1) || exit
+
+case $choice in
+	1)
+		download
+		;;
+	2)
+		search
+		;;
+	*)
+		echo "Program terminated" && exit 0
+		;;
+esac
+
