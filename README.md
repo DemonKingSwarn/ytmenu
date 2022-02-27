@@ -30,7 +30,7 @@ There are only 1 required dependency.
 ## Recommended dependencies
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
-* [`rofi`](https://github.com/davatorium/rofi) (the default menu selection screen)
+* [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
 
 # Install
 
@@ -38,6 +38,6 @@ There are only 1 required dependency.
 2. Run the following commands
 ```sh
 git clone https://github.com/demonkingswarn/ytmenu
-cd ytfzf
+cd ytmenu
 sudo cp ytplay /usr/local/bin/ytplay
 ```
