@@ -3,7 +3,7 @@
 # Watch youtube using this simple shell script
 ## Dependencies - mpv dmenu youtube-dl
 
-VERSION="1.3"
+VERSION="1.4"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
