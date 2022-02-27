@@ -47,9 +47,8 @@ There are only 1 required dependency.
 
 ## MacOs Dependencies
 
-* `brew install fzf`
-* `brew install youtube-dl`
-* `brew install --cask mpv`
+* [`fzf`](https://formulae.brew.sh/formula/fzf#default)
+* [`youtube-dl`](https://formulae.brew.sh/formula/youtube-dl#default)
 
 # Install
 
@@ -75,5 +74,5 @@ sudo cp ytmenu /usr/local/bin/ytmenu
 ```sh
 git clone https://github.com/demonkingswarn/ytmenu
 cd ytmenu
-sudo cp ytmenu-mac /usr/local/bin/ytmenu
+sudo cp ytmenu-mac /usr/local/bin/ytmenu-mac
 ```
