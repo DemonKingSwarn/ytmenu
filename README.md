@@ -1,6 +1,6 @@
-<p align="center">
 <h1 align="center">YTMENU</h1>
 <br>
+<p align="center">
 <a href="https://github.com/demonkingswarn/ytmenu/stargazers"><img src="https://img.shields.io/github/stars/demonkingswarn/ytmenu?color=orange&logo=github&style=flat-square"></a>
 <a href="https://github.com/demonkingswarn/ytmenu/graphs/contributors"><img src="https://img.shields.io/github/contributors/demonkingswarn/ytmenu?style=flat-square"></a>
 <a href="https://github.com/demonkingswarn/ytmenu/releases/tag/v1.1.1"><img src="https://img.shields.io/github/v/tag/demonkingswarn/ytmenu?style=flat-square"> </a>
