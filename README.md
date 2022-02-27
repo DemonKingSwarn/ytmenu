@@ -32,7 +32,7 @@ There are only 1 required dependency.
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
 * [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
 
-## Optional dependencies
+## Optional dependency
 
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
 
