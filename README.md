@@ -26,6 +26,7 @@
 
 * [`Dependencies`](#Dependencies)
 * [`Install`](#Install)
+* [`Credits`](#Credits)
 
 ---
 
@@ -75,3 +76,9 @@ sudo chmod +x /usr/local/bin/ytmenu
 sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac
 sudo chmod +x /usr/local/bin/ytmenu-mac
 ```
+
+# Credits
+
+| User           | Contributions                             | Donate|
+| :---           | :---                                      | :--- |
+| DemonKingSwarn    | [contributions](./credits/demonkingswarn.md)    ||
