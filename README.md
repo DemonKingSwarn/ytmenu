@@ -40,15 +40,15 @@ There are only 1 required dependency.
 ## Recommended dependencies
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
+
+## Linuc dependencies
+
 * [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
-
-## Optional dependency
-
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
 
 ## MacOs Dependencies
 
-* [`fzf`](https://formulae.brew.sh/formula/fzf#default) (the default menu selection for mac)
+* [`fzf`](https://formulae.brew.sh/formula/fzf#default) (the default menu selection)
 * [`youtube-dl`](https://formulae.brew.sh/formula/youtube-dl#default) (for downloading)
 
 # Install
@@ -65,15 +65,13 @@ yay -S ytmenu-git
 ## Other linux distros
 
 ```sh
-git clone https://github.com/demonkingswarn/ytmenu
-cd ytmenu
-sudo cp ytmenu /usr/local/bin/ytmenu
+sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o /usr/local/bin/ytmenu
+sudo chmod +x /usr/local/bin/ytmenu
 ```
 
 ## MacOs
 
 ```sh
-git clone https://github.com/demonkingswarn/ytmenu
-cd ytmenu
-sudo cp ytmenu-mac /usr/local/bin/ytmenu-mac
+sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac
+sudo chmod +x /usr/local/bin/ytmenu-mac
 ```
