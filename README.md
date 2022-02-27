@@ -10,8 +10,6 @@
  <i>A POSIX script that helps you find Youtube videos and opens/downloads them using mpv/youtube-dl</i>
  <hr>
  </p>
-<p align="center">
-This script is a simpler version of <a href="https://github.com/pystardust/ytfzf">ytfzf</a>.
 
 <h1 align="center">
 	This is a little showcase
