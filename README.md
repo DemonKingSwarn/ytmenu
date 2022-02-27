@@ -47,9 +47,9 @@ There are only 1 required dependency.
 
 ## MacOs Dependencies
 
-* [`brew install fzf`]
-* [`brew install youtube-dl`]
-* [`brew install --cask mpv`]
+* `brew install fzf`
+* `brew install youtube-dl`
+* `brew install --cask mpv`
 
 # Install
 
