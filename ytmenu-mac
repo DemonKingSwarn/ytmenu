@@ -22,7 +22,7 @@ search() {
 download() {
 	query=$(printf '%s' "$*" | fzf | tr ' ' '+')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
-	yt-dlp "$url"
+	youtube-dl "$url"
 }
 
 choice=$(menu | fzf | cut -d. -f1) || exit
