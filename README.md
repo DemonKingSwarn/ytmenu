@@ -47,8 +47,8 @@ There are only 1 required dependency.
 
 ## MacOs Dependencies
 
-* [`fzf`](https://formulae.brew.sh/formula/fzf#default)
-* [`youtube-dl`](https://formulae.brew.sh/formula/youtube-dl#default)
+* [`fzf`](https://formulae.brew.sh/formula/fzf#default) (the default menu selection for mac)
+* [`youtube-dl`](https://formulae.brew.sh/formula/youtube-dl#default) (for downloading)
 
 # Install
 
