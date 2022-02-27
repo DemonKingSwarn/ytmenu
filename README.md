@@ -10,6 +10,13 @@
 <p align="center">
 This script is a simpler version of <a href="https://github.com/pystardust/ytfzf">ytfzf</a>.
 
+<h1 align="center">
+	This is a little showcase
+</h1>
+<p align="center">
+<img src=./assets/output.gif width="100%">
+</p>
+
 ---
 
 # Table Of Contents
