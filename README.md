@@ -45,21 +45,35 @@ There are only 1 required dependency.
 
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
 
+## MacOs Dependencies
+
+* [`brew install fzf`]
+* [`brew install youtube-dl`]
+* [`brew install --cask mpv`]
+
 # Install
 
 1. Install the dependencies listed [above](#Dependencies)
 2. Run the following commands
 
-## On Arch or Arch based distros
+## Arch or Arch based distros
 
 ```sh
 yay -S ytmenu-git
 ```
 
-## On other linux distros
+## Other linux distros
 
 ```sh
 git clone https://github.com/demonkingswarn/ytmenu
 cd ytmenu
 sudo cp ytmenu /usr/local/bin/ytmenu
+```
+
+## MacOs
+
+```sh
+git clone https://github.com/demonkingswarn/ytmenu
+cd ytmenu
+sudo cp ytmenu-mac /usr/local/bin/ytmenu
 ```
