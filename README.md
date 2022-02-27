@@ -41,7 +41,7 @@ There are only 1 required dependency.
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
 
-## Linuc dependencies
+## Linux dependencies
 
 * [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
