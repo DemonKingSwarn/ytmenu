@@ -48,6 +48,15 @@ There are only 1 required dependency.
 
 1. Install the dependencies listed [above](#Dependencies)
 2. Run the following commands
+
+## On Arch Linux
+
+```sh
+yay -S ytmenu-git
+```
+
+## On other linux distros
+
 ```sh
 git clone https://github.com/demonkingswarn/ytmenu
 cd ytmenu
