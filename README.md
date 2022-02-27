@@ -56,7 +56,7 @@ There are only 1 required dependency.
 1. Install the dependencies listed [above](#Dependencies)
 2. Run the following commands
 
-## Arch or Arch based distros
+## Arch
 
 ```sh
 yay -S ytmenu-git
