@@ -1,5 +1,5 @@
 <p align="center">
-<h1>YTMENU</h1>
+<h1 align="center">YTMENU</h1>
 <br />
 <br />
 <a href="https://github.com/demonkingswarn/ytmenu/stargazers"><img src="https://img.shields.io/github/stars/demonkingswarn/ytmenu?color=orange&logo=github&style=flat-square"></a>
