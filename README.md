@@ -5,9 +5,9 @@
 <a href="https://github.com/demonkingswarn/ytmenu/graphs/contributors"><img src="https://img.shields.io/github/contributors/demonkingswarn/ytmenu?style=flat-square"></a>
 <a href="https://github.com/demonkingswarn/ytmenu/releases/tag/v1.1.1"><img src="https://img.shields.io/github/v/tag/demonkingswarn/ytmenu?style=flat-square"> </a>
 <a href="https://github.com/demonkingswarn/ytmenu/commits/master"><img src="https://img.shields.io/github/commit-activity/m/demonkingswarn/ytmenu?color=green&style=flat-square"></a>
-<a href="https://discord.gg/Kzgv8XRt4a"><img src="https://img.shields.io/discord/947394369198116864?color=yellow&logo=discord&style=flat-square" alt="Discord"></a>
 <a href="https://matrix.to/#/#demonkingswarn:matrix.org"><img src="https://img.shields.io/static/v1?color=%230eb687&message=chat&logo=matrix&label=matrix&style=flat-square" alt="Discord"></a>
 <br />
+<a href="https://discord.gg/JF85vTkDyC"><img src="https://invidget.switchblade.xyz/JF85vTkDyC"></a>
 <br />
  <i>A POSIX script that helps you find Youtube videos and opens/downloads them using mpv/youtube-dl</i>
  <hr>
