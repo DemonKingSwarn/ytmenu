@@ -10,6 +10,8 @@
 <a href="https://discord.gg/JF85vTkDyC"><img src="https://invidget.switchblade.xyz/JF85vTkDyC"></a>
 <br />
  <i>A POSIX script that helps you find Youtube videos and opens/downloads them using mpv/youtube-dl</i>
+ <br />
+ <i>This project was inspired from <a href="https://github.com/pystardust/ytfzf">ytfzf</a>.</i> 
  <hr>
  </p>
 
@@ -81,4 +83,5 @@ sudo chmod +x /usr/local/bin/ytmenu-mac
 
 | User           | Contributions                             | Donate|
 | :---           | :---                                      | :--- |
+| Pystardust 	| [contributions](./credits/pystardust.md) 	| |
 | DemonKingSwarn    | [contributions](./credits/demonkingswarn.md)    ||
