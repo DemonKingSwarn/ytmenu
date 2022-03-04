@@ -52,4 +52,3 @@ case $choice in
 		echo "Program terminated" && exit 0
 		;;
 esac
-
