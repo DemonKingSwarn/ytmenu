@@ -85,3 +85,4 @@ sudo chmod +x /usr/local/bin/ytmenu-mac
 | :---           | :---                                      | :--- |
 | Pystardust 	| [contributions](./credits/pystardust.md) 	| |
 | DemonKingSwarn    | [contributions](./credits/demonkingswarn.md)    ||
+| Bugswriter 	| [contributions](./credits/bugswriter.md) | |
