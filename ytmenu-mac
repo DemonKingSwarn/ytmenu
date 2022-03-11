@@ -33,7 +33,7 @@ input() {
 }
 
 update_script() {
-	update=$(curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac | diff -u "$0" -)
+	update=$(sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac | diff -u "$0" -)
 	printf "Script has been updated :)\n"
 }
 
