@@ -25,10 +25,16 @@ INVIDIOUS_URL="https://vid.puffyan.us"
 menu() {
 	printf "1. Download a video\n"
 	printf "2. Search web\n"
+	printf "3. Update script\n"
 }
 
 input() {
 	printf "Search YouTube: " ; read query
+}
+
+update_script() {
+	update=$(curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac | diff -u "$0" -)
+	printf "Script has been updated :)\n"
 }
 
 search() {
@@ -53,6 +59,9 @@ case $choice in
 		;;
 	2)
 		search
+		;;
+	3)
+		update_script
 		;;
 	*)
 		echo "Program terminated" && exit 0
