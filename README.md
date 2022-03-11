@@ -43,16 +43,8 @@ There is only 1 required dependency.
 ## Recommended dependency
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
-
-## Linux dependencies
-
 * [`fzf`](https://github.com/junegunn/fzf) (the default menu selection screen)
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
-
-## MacOs Dependencies
-
-* [`fzf`](https://formulae.brew.sh/formula/fzf#default) (the default menu selection screen)
-* [`youtube-dl`](https://formulae.brew.sh/formula/youtube-dl#default) (for downloading)
 
 # Install
 
@@ -65,18 +57,11 @@ There is only 1 required dependency.
 yay -S ytmenu-git
 ```
 
-## Other linux distros
+## Other linux distros & MacOs
 
 ```sh
 sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o ~/.local/bin/ytmenu
 sudo chmod +x ~/.local/bin/ytmenu
-```
-
-## MacOs
-
-```sh
-sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o ~/.local/bin/ytmenu-mac
-sudo chmod +x ~/.local/bin/ytmenu-mac
 ```
 
 # Credits
