@@ -28,12 +28,18 @@ menu() {
 	printf "3. Update script\n"
 }
 
+die() {
+	printf "$*"
+	exit 1
+}
+
 input() {
 	printf "Search YouTube: " ; read query
 }
 
 update_script() {
-	update=$(curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" | diff -u "$0" -)
+	#Get the newest version of the script
+	update="$(curl -sL "https://raw.githubusercontent.com/DemonKingSwarn/ytmenu/main/ytmenu" | diff -u "$0" -)"
 	if [ -z "$update" ]; then
 		printf "Script is up to date :)\n"
 	else
@@ -43,6 +49,16 @@ update_script() {
 			printf "Can't update for some reason!\n"
 		fi
 	fi
+}
+
+dep_ch() {
+	for dep; do
+		if ! command -v "$dep" > /dev/null ; then
+			printf "Program \"$dep\" not found. Please install it.\n"
+			[ "$dep" = "yt-dlp" ] && printf "To install yt-dlp, Type pip install yt-dlp"
+			die
+		fi
+	done
 }
 
 search() {
@@ -75,3 +91,6 @@ case $choice in
 		echo "Program terminated" && exit 0
 		;;
 esac
+
+# Checks for the main dependencies
+dep_ch "sed" "curl" "grep" "git" "yt-dlp" "mpv" "fzf"
