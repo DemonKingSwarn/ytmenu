@@ -33,8 +33,16 @@ input() {
 }
 
 update_script() {
-	update=$(curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o ~/.local/bin/ytmenu)
-	printf "Script has been updated :)\n"
+	update=$(curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" | diff -u "$0" -)
+	if [ -z "$update" ]; then
+		printf "Script is up to date :)\n"
+	else
+		if printf '%s\n' "$update" | patch "$0" - ; then
+			printf "Script has been updated"
+		else
+			printf "Can't update for some reason!"
+		fi
+	fi
 }
 
 search() {
