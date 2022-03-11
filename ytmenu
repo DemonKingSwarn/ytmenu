@@ -29,7 +29,7 @@ menu() {
 }
 
 die() {
-	printf "$*"
+	err "$*"
 	exit 1
 }
 
@@ -41,12 +41,12 @@ update_script() {
 	#Get the newest version of the script
 	update="$(curl -sL "https://raw.githubusercontent.com/DemonKingSwarn/ytmenu/main/ytmenu" | diff -u "$0" -)"
 	if [ -z "$update" ]; then
-		printf "Script is up to date :)\n"
+		inf "Script is up to date :)"
 	else
 		if printf '%s\n' "$update" | patch "$0" - ; then
-			printf "Script has been updated\n"
+			inf "Script has been updated"
 		else
-			printf "Can't update for some reason!\n"
+			inf "Can't update for some reason!"
 		fi
 	fi
 }
@@ -54,8 +54,8 @@ update_script() {
 dep_ch() {
 	for dep; do
 		if ! command -v "$dep" > /dev/null ; then
-			printf "Program \"$dep\" not found. Please install it.\n"
-			[ "$dep" = "yt-dlp" ] && printf "To install yt-dlp, Type pip install yt-dlp"
+			err "Program \"$dep\" not found. Please install it.\n"
+			[ "$dep" = "yt-dlp" ] && err "To install yt-dlp, Type pip install yt-dlp"
 			die
 		fi
 	done
@@ -88,9 +88,21 @@ case $choice in
 		update_script
 		;;
 	*)
-		echo "Program terminated" && exit 0
+		inf "Program terminated" && exit 0
 		;;
 esac
+
+#################
+#  Text Output  #
+#################
+
+err () {
+	printd "\033[1;31m%s\033[0m\n" "$*" >&2
+}
+
+inf () {
+	printf "\033[1;32m%s \033[1;35m%s\033[0m\n" "$1" "$2"
+}
 
 # Checks for the main dependencies
 dep_ch "sed" "curl" "grep" "git" "yt-dlp" "mpv" "fzf"
