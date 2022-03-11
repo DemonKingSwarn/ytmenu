@@ -33,8 +33,16 @@ die() {
 	exit 1
 }
 
+err() {
+	printf "\033[1;31m%s\033[0m\n" "$*" >&2
+}
+
+inf() {
+	printf "\033[1;32m%s \033[1;35m%s\033[0m\n" "$1" "$2"
+}
+
 input() {
-	printf "Search YouTube: " ; read query
+	inf "Search YouTube: " ; read query
 }
 
 update_script() {
@@ -91,18 +99,6 @@ case $choice in
 		inf "Program terminated" && exit 0
 		;;
 esac
-
-#################
-#  Text Output  #
-#################
-
-err() {
-	printf "\033[1;31m%s\033[0m\n" "$*" >&2
-}
-
-inf() {
-	printf "\033[1;32m%s \033[1;35m%s\033[0m\n" "$1" "$2"
-}
 
 # Checks for the main dependencies
 dep_ch "sed" "curl" "grep" "git" "yt-dlp" "mpv" "fzf"
