@@ -38,9 +38,9 @@ update_script() {
 		printf "Script is up to date :)\n"
 	else
 		if printf '%s\n' "$update" | patch "$0" - ; then
-			printf "Script has been updated"
+			printf "Script has been updated\n"
 		else
-			printf "Can't update for some reason!"
+			printf "Can't update for some reason!\n"
 		fi
 	fi
 }
