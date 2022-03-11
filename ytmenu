@@ -17,17 +17,40 @@
 #
 # Project repository: https://github.com/demonkingswarn/ytmenu
 
-VERSION="1.4.1"
+VERSION="1.4.2"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
 
-play_fn="mpv"
+player_fn="mpv"
 
 menu() {
 	printf "1. Download a video\n"
 	printf "2. Search web\n"
 	printf "3. Update script\n"
+}
+
+help_text() {
+	while IFS= read -r line; do
+		printf "%s\n" "$line"
+	done <<-EOF
+
+	Usage:
+	  ${0##*/} [-c]
+	  ${0##*/} [-v]
+	  ${0##*/} -h | -U | -V
+
+	Options:
+	-h show helptext
+	-v use VLC as the media player
+	-U fetch update from github
+	-V print version number and exit
+	-c shows the selection screen
+	EOF
+}
+
+version_text() {
+	inf "Version: $VERSION" >&2
 }
 
 die() {
@@ -71,11 +94,11 @@ dep_ch() {
 	done
 }
 
-search() {
+search_yt() {
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
-	"$play_fn" "$url"
+	"$player_fn" "$url"
 }
 
 download() {
@@ -85,22 +108,55 @@ download() {
 	yt-dlp "$url"
 }
 
-choice=$(menu | fzf | cut -d. -f1) || exit
+select() {
+	choice=$(menu | fzf | cut -d. -f1) || exit
 
-case $choice in
-	1)
-		download
-		;;
-	2)
-		search
-		;;
-	3)
-		update_script
-		;;
-	*)
-		inf "Program terminated" && exit 0
-		;;
-esac
+	case $choice in
+		1)
+			download
+			;;
+		2)
+			search_yt
+			;;
+		3)
+			update_script
+			;;
+		*)
+			inf "Program terminated" && exit 0
+			;;
+	esac
+}
+	
+trap 'printf "\033[0m";[ -f "$logfile".new ] && rm "$logfile".new;exit 1' INT HUP
+
+while getopts 'vq:dp:chDUVa:' OPT; do
+	case $OPT in
+		h)
+			help_text
+			exit 0
+			;;
+		v)
+			player_fn="vlc"
+			select
+			;;
+		U)
+			update_script
+			exit 0
+			;;
+		V)
+			version_text
+			exit 0
+			;;
+		c)
+			select
+			;;
+		*)
+			help_text
+			exit 0
+			;;
+	esac
+done
+shift $((OPTIND - 1))
 
 # Checks for the main dependencies
 dep_ch "sed" "curl" "grep" "git" "yt-dlp" "fzf"
