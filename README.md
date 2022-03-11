@@ -46,7 +46,7 @@ There is only 1 required dependency.
 
 ## Linux dependencies
 
-* [`dmenu`](https://tools.suckless.org/dmenu) (the default menu selection screen)
+* [`fzf`](https://github.com/junegunn/fzf) (the default menu selection screen)
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
 
 ## MacOs Dependencies
