@@ -42,7 +42,7 @@ inf() {
 }
 
 input() {
-	inf "Search YouTube: " ; read query
+	printf "Search YouTube: " ; read query
 }
 
 update_script() {
