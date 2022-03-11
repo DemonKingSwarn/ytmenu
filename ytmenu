@@ -71,14 +71,14 @@ dep_ch() {
 
 search() {
 	input
-	search=$(echo "${query}" | tr ' ' '+')
+	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	mpv "$url"
 }
 
 download() {
 	input
-	search=$(echo "${query}" | tr ' ' '+')
+	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	yt-dlp "$url"
 }
