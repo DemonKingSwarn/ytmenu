@@ -22,6 +22,8 @@ VERSION="1.4.1"
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
 
+play_fn="mpv"
+
 menu() {
 	printf "1. Download a video\n"
 	printf "2. Search web\n"
@@ -73,7 +75,7 @@ search() {
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
-	mpv "$url"
+	"$play_fn" "$url"
 }
 
 download() {
@@ -101,4 +103,4 @@ case $choice in
 esac
 
 # Checks for the main dependencies
-dep_ch "sed" "curl" "grep" "git" "yt-dlp" "mpv" "fzf"
+dep_ch "sed" "curl" "grep" "git" "yt-dlp" "fzf"
