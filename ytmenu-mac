@@ -17,7 +17,7 @@
 #
 # Project repository: https://github.com/demonkingswarn/ytmenu
 
-VERSION="1.4"
+VERSION="1.4.1"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
@@ -27,15 +27,21 @@ menu() {
 	printf "2. Search web\n"
 }
 
+input() {
+	printf "Search YouTube: " ; read query
+}
+
 search() {
-	query=$(printf '%s' "$*" | fzf | tr ' ' '+')
-	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	input
+	search=$(echo "${query}" | tr ' ' '+')
+	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	mpv "$url"
 }
 
 download() {
-	query=$(printf '%s' "$*" | fzf | tr ' ' '+')
-	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$query" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	input
+	search=$(echo "${query}" | tr ' ' '+')
+	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	youtube-dl "$url"
 }
 
