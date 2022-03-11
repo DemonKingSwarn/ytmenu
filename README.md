@@ -68,15 +68,15 @@ yay -S ytmenu-git
 ## Other linux distros
 
 ```sh
-sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o /usr/local/bin/ytmenu
-sudo chmod +x /usr/local/bin/ytmenu
+sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o ~/.local/bin/ytmenu
+sudo chmod +x ~/.local/bin/ytmenu
 ```
 
 ## MacOs
 
 ```sh
-sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o /usr/local/bin/ytmenu-mac
-sudo chmod +x /usr/local/bin/ytmenu-mac
+sudo curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu-mac" -o ~/.local/bin/ytmenu-mac
+sudo chmod +x ~/.local/bin/ytmenu-mac
 ```
 
 # Credits
