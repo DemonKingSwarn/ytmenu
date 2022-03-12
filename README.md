@@ -10,8 +10,6 @@
 <br />
  <i>A POSIX script that helps you find Youtube videos and opens/downloads them using mpv/youtube-dl</i>
  <br />
- <i>This project was inspired from <a href="https://github.com/pystardust/ytfzf">ytfzf</a>.</i> 
- <hr>
  </p>
 
 ---
@@ -35,7 +33,6 @@ There is only 1 required dependency.
 ## Recommended dependency
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
-* [`fzf`](https://github.com/junegunn/fzf) (the default menu selection screen)
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
 
 # Install
@@ -60,6 +57,5 @@ chmod +x ~/.local/bin/ytmenu
 
 | User           | Contributions                             | Donate|
 | :---           | :---                                      | :--- |
-| Pystardust 	| [contributions](./credits/pystardust.md) 	| |
 | DemonKingSwarn    | [contributions](./credits/demonkingswarn.md)    ||
 | Bugswriter 	| [contributions](./credits/bugswriter.md) | |
