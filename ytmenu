@@ -25,7 +25,6 @@ INVIDIOUS_URL="https://vid.puffyan.us"
 player_fn="mpv"
 
 download_dir="$HOME/Downloads/ytmenu"
-mkdir -p "$download_dir"
 
 # Allow the user to customize the defaults
 [ -e "$HOME/.config/ytmenurc" ] && . "$HOME/.config/ytmenurc"
@@ -112,6 +111,7 @@ download() {
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	mkdir -p "$download_dir"
 	cd "$download_dir"
 	yt-dlp "$url"
 }
