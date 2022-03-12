@@ -24,6 +24,9 @@ INVIDIOUS_URL="https://vid.puffyan.us"
 
 player_fn="mpv"
 
+# Allow the user to customize the defaults
+[ -e "$HOME/.config/ytmenurc" ] && . "$HOME/.config/ytmenurc"
+
 menu() {
 	printf "1. Download a video\n"
 	printf "2. Search web\n"
