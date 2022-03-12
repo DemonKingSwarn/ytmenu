@@ -18,8 +18,9 @@
 
 * [`Dependencies`](#Dependencies)
 * [`Install`](#Install)
+* [`Usage`](#Usage)
+* [`Options`](#Options)
 * [`Credits`](#Credits)
-
 ---
 
 # Dependencies
@@ -51,6 +52,25 @@ yay -S ytmenu-git
 ```sh
 curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o ~/.local/bin/ytmenu
 chmod +x ~/.local/bin/ytmenu
+```
+
+# Usage
+
+```
+  ytmenu [-c]
+  ytmenu [-v]
+  ytmenu -h | -U | -V
+```
+
+# Options
+
+```
+-h show helptext
+-v use VLC as the media player
+-U fetch update from github
+-V print version number and exit
+-c search youtube
+-d downloads the video
 ```
 
 # Credits
