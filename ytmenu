@@ -29,12 +29,6 @@ download_dir="$HOME/Downloads/ytmenu"
 # Allow the user to customize the defaults
 [ -e "$HOME/.config/ytmenurc" ] && . "$HOME/.config/ytmenurc"
 
-menu() {
-	printf "1. Download a video\n"
-	printf "2. Search web\n"
-	printf "3. Update script\n"
-}
-
 help_text() {
 	while IFS= read -r line; do
 		printf "%s\n" "$line"
