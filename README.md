@@ -77,5 +77,5 @@ chmod +x ~/.local/bin/ytmenu
 
 | User           | Contributions                             | Donate|
 | :---           | :---                                      | :--- |
-| DemonKingSwarn    | [contributions](./credits/demonkingswarn.md)    ||
+| DemonKingSwarn    | [contributions](./credits/demonkingswarn.md) | 43Lmjz4PxuQCKh1mua6qj1Ti5HVDJU1ta6gzock4G3uSW4bb8FGADsSJ6GHhwBK6hLHyE2ARai9ijHsFW76rpRBkBzEg7Jp |
 | Bugswriter 	| [contributions](./credits/bugswriter.md) | |
