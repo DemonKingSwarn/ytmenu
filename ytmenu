@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # ytmenu
 #
@@ -26,8 +26,14 @@ player_fn="mpv"
 
 download_dir="$HOME/Downloads/ytmenu"
 
+config_dir="$HOME/.config"
+if [ -n "$XDG_CONFIG_HOME" ];
+then
+	config_dir="$XDG_CONFIG_HOME"
+fi
+
 # Allow the user to customize the defaults
-[ -e "$HOME/.config/ytmenurc" ] && . "$HOME/.config/ytmenurc"
+[ -e "$config_dir/ytmenurc" ] && . "$config_dir/ytmenurc"
 
 help_text() {
 	while IFS= read -r line; do
