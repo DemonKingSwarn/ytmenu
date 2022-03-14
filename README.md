@@ -54,6 +54,14 @@ curl -sL "https://github.com/DemonKingSwarn/ytmenu/raw/main/ytmenu" -o ~/.local/
 chmod +x ~/.local/bin/ytmenu
 ```
 
+## Windows
+
+- Open powershell and type the following commands: 
+
+```sh
+wget "https://github.com/demonkingswarn/ytmenu/raw/main/ytmenu-win.py"
+```
+
 # Usage
 
 ```
