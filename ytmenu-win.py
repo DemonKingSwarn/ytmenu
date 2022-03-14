@@ -11,4 +11,4 @@ response=requests.get(f'{url}/search?q={query}')
 x=re.findall(r'(https?://\S+)', response.text)[0]
 replaced_str=x.replace("\">", "")
 print(replaced_str)
-os.system(f"start {player} {replaced_str}")
+os.system(f"{player} {replaced_str}")
