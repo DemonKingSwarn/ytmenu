@@ -3,7 +3,7 @@ import re
 import os
 
 url='https://vid.puffyan.us'
-player="vlc"
+player="mpv"
 search=input("Search YouTube: ")
 query=search.replace(" ", "+")
 response=requests.get(f'{url}/search?q={query}')
