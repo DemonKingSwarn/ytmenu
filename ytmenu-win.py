@@ -4,11 +4,17 @@ import os
 
 url='https://vid.puffyan.us'
 player="mpv"
-search=input("Search YouTube: ")
-query=search.replace(" ", "+")
-response=requests.get(f'{url}/search?q={query}')
-#string="watch\?v=.{11}"
-x=re.findall(r'(https?://\S+)', response.text)[0]
-replaced_str=x.replace("\">", "")
-print(replaced_str)
-os.system(f"{player} {replaced_str}")
+
+def search_yt():
+    global url
+    global player
+    search=input("Search YouTube: ")
+    query=search.replace(" ", "+")
+    response=requests.get(f'{url}/search?q={query}')
+    #string="watch\?v=.{11}"
+    x=re.findall(r'(https?://\S+)', response.text)[0]
+    url=x.replace("\">", "")
+    print(url)
+    os.system(f"{player} {url}")
+
+search_yt()
