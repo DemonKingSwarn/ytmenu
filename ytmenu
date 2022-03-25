@@ -17,7 +17,7 @@
 #
 # Project repository: https://github.com/demonkingswarn/ytmenu
 
-VERSION="1.4.2"
+VERSION="1.4.3"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
@@ -25,6 +25,13 @@ INVIDIOUS_URL="https://vid.puffyan.us"
 player_fn="mpv"
 
 download_dir="$HOME/Downloads/ytmenu"
+
+logfile="${XDG_CACHE_HOME:-$HOME/.cache}/yt-hsts"
+logdir="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+# create history directory and history file if none found
+[ -d "$logdir" ] || mkdir "$logdir"
+[ -f "$logfile" ] || : > "$logfile"
 
 config_dir="$HOME/.config"
 if [ -n "$XDG_CONFIG_HOME" ];
@@ -104,6 +111,7 @@ search_yt() {
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	append_history
 	"$player_fn" "$url"
 }
 
@@ -114,6 +122,10 @@ download() {
 	mkdir -p "$download_dir"
 	cd "$download_dir"
 	yt-dlp "$url"
+}
+
+append_history() {
+	grep -q -w "${query}" "${logfile}" || printf "%s\t%s\n" "$query" >> "$logfile"
 }
 	
 trap 'printf "\033[0m";[ -f "$logfile".new ] && rm "$logfile".new;exit 1' INT HUP
