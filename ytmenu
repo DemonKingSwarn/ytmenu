@@ -117,6 +117,11 @@ search_yt() {
 }
 
 download() {
+	if ! command -v yt-dlp > /dev/null ; then
+		err "Program yt-dlp not found. Please install it by 'pip install -U yt-dlp'"
+		die
+	fi
+	
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
@@ -176,4 +181,4 @@ done
 shift $((OPTIND - 1))
 
 # Checks for the main dependencies
-dep_ch "sed" "curl" "grep" "git" "yt-dlp"
+dep_ch "sed" "curl" "grep" "git"
