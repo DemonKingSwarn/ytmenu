@@ -17,7 +17,7 @@
 #
 # Project repository: https://github.com/demonkingswarn/ytmenu
 
-VERSION="1.4.3"
+VERSION="1.4.4"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
@@ -48,7 +48,7 @@ help_text() {
 	done <<-EOF
 
 	Usage:
-	  ${0##*/} [-c]
+	  ${0##*/} [-s]
 	  ${0##*/} [-v]
 	  ${0##*/} -h | -U | -V
 
@@ -57,8 +57,9 @@ help_text() {
 	-v use VLC as the media player
 	-U fetch update from github
 	-V print version number and exit
-	-c search youtube
+	-s search youtube
 	-d downloads the video
+	-H play from history
 	EOF
 }
 
@@ -125,12 +126,22 @@ download() {
 }
 
 append_history() {
-	grep -q -w "${query}" "${logfile}" || printf "%s\t%s\n" "$query" >> "$logfile"
+	grep -q -w "${url}" "${logfile}" || printf "%s\t%s\n" "$url" >> "$logfile"
+}
+
+play_history() {
+	if ! command -v fzf > /dev/null ; then
+		err "Program fzf not found. Please install it."
+		die
+	fi
+
+	choose=$(cat "$logfile" | fzf)
+	"$player_fn" "$choose"
 }
 	
 trap 'printf "\033[0m";[ -f "$logfile".new ] && rm "$logfile".new;exit 1' INT HUP
 
-while getopts 'vq:dp:chDUVa:' OPT; do
+while getopts 'vq:dp:shHDUVa:' OPT; do
 	case $OPT in
 		h)
 			help_text
@@ -147,11 +158,14 @@ while getopts 'vq:dp:chDUVa:' OPT; do
 			version_text
 			exit 0
 			;;
-		c)
+		s)
 			search_yt
 			;;
 		d)	
 			download
+			;;
+		H)
+			play_history
 			;;
 		*)
 			help_text

@@ -35,6 +35,7 @@ There is only 1 required dependency.
 
 * [`mpv`](https://github.com/mpv-player/mpv) (the default video and audio player)
 * [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) (for downloading)
+* [`fzf`](https://github.com/junegunn/fzf) (for selection screen)
 
 # Install
 
