@@ -102,7 +102,7 @@ dep_ch() {
 	for dep; do
 		if ! command -v "$dep" > /dev/null ; then
 			err "Program \"$dep\" not found. Please install it.\n"
-			[ "$dep" = "yt-dlp" ] && err "To install yt-dlp, Type pip install yt-dlp"
+			[ "$dep" = "yt-dlp" ] && err "To install yt-dlp, Type pip install -U yt-dlp"
 			die
 		fi
 	done
@@ -117,10 +117,7 @@ search_yt() {
 }
 
 download() {
-	if ! command -v yt-dlp > /dev/null ; then
-		err "Program yt-dlp not found. Please install it by 'pip install -U yt-dlp'"
-		die
-	fi
+	dep_ch "yt-dlp"
 	
 	input
 	search=$(echo "${query}" | sed 's/ /+/g')
@@ -135,10 +132,7 @@ append_history() {
 }
 
 play_history() {
-	if ! command -v fzf > /dev/null ; then
-		err "Program fzf not found. Please install it."
-		die
-	fi
+	dep_ch "fzf"
 
 	choose=$(cat "$logfile" | fzf)
 	"$player_fn" "$choose"
