@@ -33,13 +33,8 @@ logdir="${XDG_CACHE_HOME:-$HOME/.cache}"
 [ -d "$logdir" ] || mkdir "$logdir"
 [ -f "$logfile" ] || : > "$logfile"
 
-config_dir="$HOME/.config"
-if [ -n "$XDG_CONFIG_HOME" ];
-then
-	config_dir="$XDG_CONFIG_HOME"
-fi
-
 # Allow the user to customize the defaults
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
 [ -e "$config_dir/ytmenurc" ] && . "$config_dir/ytmenurc"
 
 help_text() {
