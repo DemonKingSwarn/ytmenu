@@ -166,7 +166,7 @@ while getopts 'vq:dp:shHDUVa:' OPT; do
 done
 shift $((OPTIND - 1))
 
-query=$(echo "$*" | sed 's/ /+/g')
+query=$(echo "$*")
 
 if [ ! -z "$query" ] ; then
 	search_yt
