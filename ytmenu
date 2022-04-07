@@ -52,7 +52,6 @@ help_text() {
 	-v use VLC as the media player
 	-U fetch update from github
 	-V print version number and exit
-	-s search youtube
 	-d downloads the video
 	-H play from history
 	EOF
@@ -76,7 +75,8 @@ inf() {
 }
 
 input() {
-	printf "Search YouTube: " ; read query
+	printf "Search YouTube: " ; read -r query
+	search_yt
 }
 
 update_script() {
@@ -104,7 +104,6 @@ dep_ch() {
 }
 
 search_yt() {
-	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	append_history
@@ -119,6 +118,7 @@ download() {
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	mkdir -p "$download_dir"
 	cd "$download_dir"
+	append_history
 	yt-dlp "$url"
 }
 
@@ -152,9 +152,6 @@ while getopts 'vq:dp:shHDUVa:' OPT; do
 			version_text
 			exit 0
 			;;
-		s)
-			search_yt
-			;;
 		d)	
 			download
 			;;
@@ -168,6 +165,16 @@ while getopts 'vq:dp:shHDUVa:' OPT; do
 	esac
 done
 shift $((OPTIND - 1))
+
+query=$(echo "$*" | sed 's/ /+/g')
+
+if [ ! -z "$query" ] ; then
+	search_yt
+fi
+
+if [ -z "$query" ] ; then
+	input
+fi
 
 # Checks for the main dependencies
 dep_ch "sed" "curl" "grep" "git"
