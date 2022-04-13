@@ -10,7 +10,6 @@ def get_username():
 
 url='https://vid.puffyan.us'
 player="C://Users//" + get_username() + "//AppData//Roaming//mpv//mpv.exe"
-print(player)
 def search_yt():
     global url
     global player
