@@ -19,6 +19,6 @@ def search_yt():
     x=re.findall(r'(https?://\S+)', response.text)[0]
     url=x.replace("\">", "")
     print(url)
-    os.system(f"{player} {url}")
+    os.startfile(f"{player} {url}")
 
 search_yt()
