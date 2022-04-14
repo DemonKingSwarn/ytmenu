@@ -17,7 +17,7 @@
 #
 # Project repository: https://github.com/demonkingswarn/ytmenu
 
-VERSION="1.4.4"
+VERSION="1.4.5"
 
 YOUTUBE_URL="https://youtube.com"
 INVIDIOUS_URL="https://vid.puffyan.us"
@@ -52,6 +52,7 @@ help_text() {
 	-v use VLC as the media player
 	-U fetch update from github
 	-V print version number and exit
+	-s play audio from a yt video
 	-d downloads the video
 	-H play from history
 	EOF
@@ -113,13 +114,20 @@ search_yt() {
 download() {
 	dep_ch "yt-dlp"
 	
-	input
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	mkdir -p "$download_dir"
 	cd "$download_dir"
 	append_history
 	yt-dlp "$url"
+}
+
+play_audio() {
+	search=$(echo "${query}" | sed 's/ /+/g')
+	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	audio="$url&listen=1"
+	append_history
+	"$player_fn" "$audio"
 }
 
 append_history() {
@@ -151,6 +159,9 @@ while getopts 'vq:dp:shHDUVa:' OPT; do
 		V)
 			version_text
 			exit 0
+			;;
+		s)
+			play_audio
 			;;
 		d)	
 			download
