@@ -66,7 +66,7 @@ wget "https://github.com/demonkingswarn/ytmenu/raw/main/ytmenu-win.py"
 # Usage
 
 ```
-  ytmenu [-c]
+  ytmenu [-s]
   ytmenu [-v]
   ytmenu -h | -U | -V
 ```
@@ -78,8 +78,10 @@ wget "https://github.com/demonkingswarn/ytmenu/raw/main/ytmenu-win.py"
 -v use VLC as the media player
 -U fetch update from github
 -V print version number and exit
--c search youtube
+-s play audio from a yt video
 -d downloads the video
+-H play from history
+
 ```
 
 # Credits
