@@ -124,7 +124,7 @@ download() {
 
 play_audio() {
 	search=$(echo "${query}" | sed 's/ /+/g')
-	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
+	url="$INVIDIOUS_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	audio="$url&listen=1"
 	append_history
 	"$player_fn" "$audio"
