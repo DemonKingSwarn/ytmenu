@@ -2,23 +2,27 @@
 
 import requests
 import re
-import os
 import pwd
+import subprocess
 
-def get_username():
-    return pwd.getpwuid(os.getuid())[0]
+MPV_EXECUTABLE = "mpv"
 
-url='https://vid.puffyan.us'
-player="C://Users//" + get_username() + "//AppData//Roaming//mpv//mpv.exe"
-def search_yt():
-    global url
-    global player
-    search=input("Search YouTube: ")
-    query=search.replace(" ", "+")
-    response=requests.get(f'{url}/search?q={query}')
-    x=re.findall(r'(https?://\S+)', response.text)[0]
-    url=x.replace("\">", "")
-    print(url)
-    os.startfile(f"{player} {url}")
+url = "https://vid.puffyan.us"
 
-search_yt()
+search=input("Search YouTube: ")
+query=search.replace(" ", "+")
+response=requests.get(f'{url}/search?q={query}')
+x=re.findall(r'(https?://\S+)', response.text)[0]
+x=x.replace("\">", "")
+
+args = [
+    MPV_EXECUTABLE,
+    f"{x}",
+    "--force-media-title={}".format(
+        "Rise and live again. As my fist of vengeance. As my Moon Knight."
+    )
+]
+
+mpv_process = subprocess.Popen(args, stdout=subprocess.DEVNULL)
+
+mpv_process.wait()

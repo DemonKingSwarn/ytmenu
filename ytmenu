@@ -37,6 +37,14 @@ logdir="${XDG_CACHE_HOME:-$HOME/.cache}"
 config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
 [ -e "$config_dir/ytmenurc" ] && . "$config_dir/ytmenurc"
 
+c_red="\033[1;31m"
+c_green="\033[1;32m"
+c_yellow="\033[1;33m"
+c_blue="\033[1;34m"
+c_magenta="\033[1;35m"
+c_cyan="\033[1;36m"
+c_reset="\033[0m"
+
 help_text() {
 	while IFS= read -r line; do
 		printf "%s\n" "$line"
@@ -76,7 +84,7 @@ inf() {
 }
 
 input() {
-	printf "Search YouTube: " ; read -r query
+	[ -z "$*" ] && printf "${c_magenta}Search YouTube:${c_reset} " && read -r query || query="$*"
 	search_yt
 }
 
@@ -108,7 +116,7 @@ search_yt() {
 	search=$(echo "${query}" | sed 's/ /+/g')
 	url="$YOUTUBE_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	append_history
-	"$player_fn" "$url"
+	"$player_fn" "$url" > /dev/null
 }
 
 download() {
@@ -127,7 +135,7 @@ play_audio() {
 	url="$INVIDIOUS_URL/$(curl -s "$INVIDIOUS_URL/search?q=$search" | grep -Eo "watch\?v=.{11}" | head -n 1)"
 	audio="$url&listen=1"
 	append_history
-	"$player_fn" "$audio"
+	"$player_fn" "$audio" > /dev/null
 }
 
 append_history() {
@@ -177,15 +185,7 @@ while getopts 'vq:dp:shHDUVa:' OPT; do
 done
 shift $((OPTIND - 1))
 
-query=$(echo "$*")
-
-if [ ! -z "$query" ] ; then
-	search_yt
-fi
-
-if [ -z "$query" ] ; then
-	input
-fi
+input "$*"
 
 # Checks for the main dependencies
 dep_ch "sed" "curl" "grep" "git"
